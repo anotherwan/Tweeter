@@ -5,11 +5,11 @@
   border-radius: 5px;
   background-color: #F5F5F5;
   padding: 10px;
-  margin: 30px 15px 100% 15px;
+  margin: 30px 15px 5px 15px;
 }
 
 
-.tweet-header {
+.new-tweet-header {
   border-bottom: solid black 1px;
   margin-top: 2px;
   flex-grow: 1;
@@ -22,15 +22,14 @@ textarea {
   flex-grow: 1;
 }
 
-.tweet-footer {
+.new-tweet-footer {
   display: flex;
   justify-content: space-between;
 }
 
-tweet-btn {
+.new-tweet-btn {
   margin: 3px;
   justify-content: flex-start;
-  flex-grow: 1;
 }
 
 .counter {
