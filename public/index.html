@@ -35,11 +35,11 @@
     <main class="container">
       <section class="new-tweet">
         <h2 class="new-tweet-header">Compose Tweet</h2>
-        <form>
-          <textarea name="text" placeholder="What are you humming about?"></textarea>
+        <form id="tweet-form" action="/tweets">
+          <textarea id="inputText" name="text" placeholder="What are you humming about?"></textarea>
           <br>
           <div class="new-tweet-footer">
-            <input class="new-tweet-btn" type="submit" value="Tweet">
+            <input id="new-tweet-btn" type="submit" value="Tweet">
             <span class="counter">140</span>
           </div>
         </form>
