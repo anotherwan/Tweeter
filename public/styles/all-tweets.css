@@ -1,6 +1,6 @@
 
 .tweet {
-  margin: 5px;
+  margin: 50px 16px 0px 16px;
   border: #D3D3D3 solid 1px;
   border-radius: 5px;
   background-color: white;
@@ -20,6 +20,7 @@
   align-items: center;
   background-color: #F5F5F5;
   padding: 5px;
+  flex-wrap: wrap;
 }
 
 .tweet:hover .tweet-header {
@@ -50,6 +51,7 @@ img {
 
 .content {
   padding: 10px;
+  flex-wrap: wrap;
 }
 
 .tweet-footer {
@@ -57,6 +59,7 @@ img {
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .timestamp {
