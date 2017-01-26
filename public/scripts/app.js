@@ -61,24 +61,22 @@ $(function() {
     console.log()
     if ($('#inputText').val().length > 140) {
       alert('Character count is over the limit!')
-    } else if ($('#inputText').val().length === 0 || $('#textInput').val() === "") {
+    } else if ($('#inputText').val().length === 0 || $('#inputText').val() === "") {
       alert('Tweet field is empty!')
     } else {
       $.ajax('/tweets', {
         method: 'POST',
         data: $(this).serialize()   //returns "text=string"
       })
-      .then(function() {
+      .done(function() {
+        $('#inputText').val("");
         loadTweets()      //reminder to loadTweets after submit
       })
       .fail(function(error) {
         console.log('Error: ', error)
       })
     }
+
   })
   loadTweets()      //loadTweets on doc.ready to show before submitting new tweet
-  $('#compose-button').click(function() {
-    $('.new-tweet').slideToggle()
-    $('#inputText').focus()
-  })
 })
