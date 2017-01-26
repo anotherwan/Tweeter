@@ -27,9 +27,9 @@ function createTweetElement(tweet) {
        <footer class="tweet-footer">
          <span class"timestamp">${escape(timestamp)}</span>
          <span class="icons">
-           <i class="fa fa-flag" aria-hidden="true"></i>
-           <i class="fa fa-retweet" aria-hidden="true"></i>
-           <i class="fa fa-heart" aria-hidden="true"></i>
+           <i class="fa fa-flag" aria-hidden="true"></i>&nbsp
+           <i class="fa fa-retweet" aria-hidden="true"></i>&nbsp
+           <i class="fa fa-heart" aria-hidden="true"></i>&nbsp
        </span>
        </footer>
     </article>`
@@ -77,4 +77,8 @@ $(function() {
     }
   })
   loadTweets()      //loadTweets on doc.ready to show before submitting new tweet
+  $('#compose-button').click(function() {
+    $('.new-tweet').slideToggle()
+    $('#inputText').focus()
+  })
 })
