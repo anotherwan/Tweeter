@@ -56,7 +56,7 @@ function loadTweets() {
 }
 
 $(function() {
-  $('form').on('submit', function(ev) {
+  $('#tweet-form').on('submit', function(ev) {
     ev.preventDefault();  //default is synchronous; we are preventing default to make it asynch using AJAX
     console.log()
     if ($('#inputText').val().length > 140) {
@@ -69,7 +69,8 @@ $(function() {
         data: $(this).serialize()   //returns "text=string"
       })
       .done(function() {
-        $('#inputText').val("");
+        $('#inputText').val("")
+        $('.counter').text(140)
         loadTweets()      //reminder to loadTweets after submit
       })
       .fail(function(error) {
