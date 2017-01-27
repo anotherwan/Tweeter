@@ -15,7 +15,7 @@ function createTweetElement(tweet) {
  let smallAvatar = tweet.user.avatars.small
  let handle = tweet.user.handle
  let content = tweet.content.text
- let timestamp = tweet.created_at
+ let timestamp = $.timeago(tweet.created_at)
  let html =
    `<article class="tweet">
      <header class="tweet-header">
