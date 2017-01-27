@@ -1,0 +1,65 @@
+.registration {
+  display: flex;
+  flex-direction: column;
+  border: #00a087 solid 1px;
+  border-radius: 5px;
+  background-color: #F5F5F5;
+  padding: 10px;
+  margin: 16px 16px 0px 16px;
+  color: #00a087;
+  /*display: none;*/
+}
+
+.reg-header {
+  border-bottom: solid #00a087 1px;
+  margin-top: 2px;
+  flex-grow: 1;
+  color: #00a087;
+}
+
+#reg-form {
+  display: flex;
+  flex-flow: column wrap;
+  color: #00a087;
+}
+
+#reg-name {
+  margin: 3px 16px;
+  padding: 3px;
+}
+
+#reg-handle {
+  margin: 3px 16px;
+  padding: 3px;
+}
+
+#reg-email {
+  margin: 3px 16px;
+  padding: 3px;
+}
+
+#reg-password {
+  margin: 3px 16px;
+  padding: 3px;
+}
+
+.registration-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+#registration-btn {
+  font-size: 100%;
+  margin: 3px;
+  justify-content: flex-start;
+  padding: 5px;
+  border: black #00a087 1px;
+  border-radius: 5px;
+  color: #00a087;
+  background-color: white;
+
+}
+
+#registration-btn:hover {
+  color: black;
+}
