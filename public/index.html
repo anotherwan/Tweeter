@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css">
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css">
     <link rel="stylesheet" href="/styles/all-tweets.css" type="text/css">
+    <link rel="stylesheet" href="/styles/registration.css" type="text/css">
+    <link rel="stylesheet" href="/styles/login.css" type="text/css">
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
@@ -32,10 +34,51 @@
       <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
       <button id="compose-button" type="button"><i class='fa fa-pencil-square-o' aria-hidden='true'></i>&nbspCompose</button>
+      <button id="registration-button" type="button"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbspRegistration</button>
+      <button id="login-button" type="button"><i class="fa fa-user-circle" aria-hidden="true"></i>&nbspLogin</button>
+      <button id="logout-button" type="button"><i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbspLogout</button>
     </nav>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <section class="registration">
+       <h2 class="reg-header">Registration</strong></h2>
+        <form id="reg-form" action="/tweets">
+          <label for="reg-name"><strong>Name:</strong></strong></label>
+            <input id="reg-name" type="text" name="name" placeholder="Username">
+
+          <label for="reg-handle"><strong>Handle:</strong></label>
+            <input id="reg-handle" type="text" name="handle" value="@" placeholder="handle">
+
+          <label for="reg-email"><strong>Email:</strong></label>
+            <input id="reg-email" type="email" name="email" placeholder="example@email.com">
+
+          <label for="password"><strong>Password:</strong></label>
+            <input id="reg-password" type="password" name="password" placeholder="Password">
+
+          <!-- <p> (Upload Avatar) </p> -->
+
+              <div class="registration-footer">
+                <input id="registration-btn" type="submit" value="Register">
+              </div>
+        </form>
+      </section>
+
+
+      <section class="login">
+        <h2 class="login-header">Login</strong></h2>
+         <form id="login-form" action="/tweets">
+           <label for="login-email"><strong>Email:</strong></label>
+             <input id="login-email" type="email" name="email" placeholder="example@email.com">
+           <label for="login-password"><strong>Password:</strong></label>
+             <input id="login-password" type="password" name="password" placeholder="Password">
+             <div class="login-footer">
+               <input id="login-btn" type="submit" value="Login">
+             </div>
+       </form>
+     </section>
+
+
       <section class="new-tweet">
         <h2 class="new-tweet-header">Compose Tweet</h2>
         <form id="tweet-form" action="/tweets">
@@ -47,6 +90,7 @@
           </div>
         </form>
       </section>
+
       <section id="tweets-container">
       </section>
     </main>
