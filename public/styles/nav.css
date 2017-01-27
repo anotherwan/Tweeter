@@ -29,17 +29,67 @@
 }
 
 #compose-button {
-  font-size: 150%;
+  font-size: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin: auto;
+  border: black solid 1px;
+  border-radius: 5px;
+  color: #00a087;
+  background-color: #e8fdff;
+  /*display: none;*/
+}
+
+#compose-button:hover {
+  color: black;
+}
+
+
+#registration-button {
+  font-size: 100%;
   align-items: center;
   justify-content: flex-end;
   padding: 10px;
-  margin: 8px 8px 8px auto;
+  margin: auto 5px auto auto;
   border: black solid 1px;
   border-radius: 5px;
   color: #00a087;
   background-color: #e8fdff;
 }
 
-#compose-button:hover {
+#registration-button:hover {
+  color: black;
+}
+
+#login-button {
+  font-size: 100%;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+  margin: auto 10px auto 5px;
+  border: black solid 1px;
+  border-radius: 5px;
+  color: #00a087;
+  background-color: #e8fdff;
+}
+
+#login-button:hover {
+  color: black;
+}
+
+#logout-button {
+  font-size: 100%;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+  margin: auto 10px auto 5px;
+  border: black solid 1px;
+  border-radius: 5px;
+  color: #00a087;
+  background-color: #e8fdff;
+}
+
+#logout-button:hover {
   color: black;
 }
