@@ -1,16 +1,17 @@
 .new-tweet {
   display: flex;
   flex-direction: column;
-  border: lightgrey solid 1px;
+  border: #00a087 solid 1px;
   border-radius: 5px;
   background-color: #F5F5F5;
   padding: 10px;
   margin: 16px 16px 0px 16px;
-  display: none;
+  color: #00a087;
+  /*display: none;*/
 }
 
 .new-tweet-header {
-  border-bottom: solid black 1px;
+  border-bottom: solid #00a087 1px;
   margin-top: 2px;
   flex-grow: 1;
 }
@@ -27,9 +28,19 @@ textarea {
   justify-content: space-between;
 }
 
-.new-tweet-btn {
+#new-tweet-btn {
+  font-size: 100%;
   margin: 3px;
   justify-content: flex-start;
+  padding: 5px;
+  border: #00a087 black 1px;
+  border-radius: 5px;
+  color: #00a087;
+  background-color: white;
+}
+
+#new-tweet-btn:hover {
+  color: black;
 }
 
 .counter {
