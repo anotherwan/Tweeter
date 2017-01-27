@@ -5,6 +5,7 @@
   border-radius: 5px;
   background-color: white;
   margin: 15px;
+  /*display: none;*/
 }
 
 .tweet:hover {
