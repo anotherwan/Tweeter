@@ -44,3 +44,30 @@
     "created_at": 1461113796368
   }
 ]
+
+/*db.users.insert([
+  {
+  	"_id" : ObjectId("588cdeb39c008d5bcd9445d0"),
+  	"name" : "swan",
+  	"handle" : "@swan",
+  	"email" : "swan@example.com",
+  	"password" : "1234",
+  	"avatars" : {
+  		"small" : "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
+  		"regular" : "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
+  		"large" : "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
+  	}
+  }
+  {
+  	"_id" : ObjectId("588cdef89c008d5bcd9445d1"),
+  	"name" : "swish",
+  	"handle" : "@swish",
+  	"email" : "swish@example.com",
+  	"password" : "4321",
+  	"avatars" : {
+  		"small" : "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
+  		"regular" : "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
+  		"large" : "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
+  	}
+  }
+])*/
