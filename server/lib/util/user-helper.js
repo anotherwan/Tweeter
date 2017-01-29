@@ -5,6 +5,16 @@ const chance = new Chance();
 
 const md5 = require('md5');
 
+const generateAvatar = (userHandle) => {
+  const avatarUrlPrefix = `https://vanillicon.com/${md5(userHandle)}`;
+  const avatars = {
+    small:   `${avatarUrlPrefix}_50.png`,
+    regular: `${avatarUrlPrefix}.png`,
+    large:   `${avatarUrlPrefix}_200.png`
+  }
+  return avatars;
+}
+
 module.exports = {
 
   generateRandomUser: () => {
@@ -26,18 +36,14 @@ module.exports = {
       const suffix = Math.round(Math.random() * 100);
       userHandle += suffix;
     }
-
-    const avatarUrlPrefix = `https://vanillicon.com/${md5(userHandle)}`;
-    const avatars = {
-      small:   `${avatarUrlPrefix}_50.png`,
-      regular: `${avatarUrlPrefix}.png`,
-      large:   `${avatarUrlPrefix}_200.png`
-    }
+    const avatars = generateAvatar(userHandle)
 
     return {
       name: userName,
       handle: userHandle,
       avatars: avatars
     };
-  }
+  },
+
+  generateAvatar: generateAvatar
 };
