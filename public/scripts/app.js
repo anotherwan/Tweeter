@@ -58,7 +58,6 @@ function loadTweets() {
 $(function() {
   $('#tweet-form').on('submit', function(ev) {
     ev.preventDefault();  //default is synchronous; we are preventing default to make it asynch using AJAX
-    console.log()
     if ($('#inputText').val().length > 140) {
       alert('Character count is over the limit!')
     } else if ($('#inputText').val().length === 0 || $('#inputText').val() === "") {
@@ -77,6 +76,29 @@ $(function() {
         console.log('Error: ', error)
       })
     }
+
+  // $('#login-form').on('submit', function(ev) {
+  //   ev.preventDefault()
+  //   $.ajax('/login', {
+  //     method: 'POST',
+  //     data: $(this).serialize()
+  //   })
+  //   .done(function() {
+  //     $('#registration-btn').hide()
+  //     $('#login-btn').hide()
+  //     $('#login-form').val("")
+  //   })
+  //   .fail(function(error) {
+  //     console.log('Error: ', error)
+  //   })
+  // })
+
+    // $('#reg-form').on('submit', function(ev) {
+    //   ev.preventDefault();
+    //   $.ajax('/tweets', {
+    //     method: 'POST',
+    //     data: $(this).serialize()   //returns "text=string"
+    //   })
 
   })
   loadTweets()      //loadTweets on doc.ready to show before submitting new tweet
