@@ -10,21 +10,22 @@ const bcrypt          = require('bcrypt')
 module.exports = function(DataHelpers) {
 
   sessionRoutes.post('/login', (req, res) => {
-    DataHelpers.findUser(req.body.email, (err, user) => {
-      if (user.length === 0) {
-        res.status(403).json({ error: 'Invalid email or password'});
-      } else if (err) {
-        res.status(500).json({ error: err.message });
-      } else {
-        let foundUser = user[0];
-        if (req.body.password !== user[0].password) {
-          res.status(403).json({ error: 'Invalid email or password'});
-        }
-        else {
-          req.session.email = foundUser.email;
-          res.status(200).json({email: foundUser.email });
-        }
+    DataHelpers.findUser(req.body.email, (err, users) => {
+      if (err) {
+        return res.status(500).json({ error: err.message });
+      } else if(users.length === 0) {
+        return res.status(403).json({ error: 'Invalid email or password'});
       }
+
+      const foundUser = users[0];
+      // check if the passwords mismatch, if so, return an error message
+      // TODO: add bcrypt for password checking
+      if (req.body.password !== users[0].password) {
+        return res.status(403).json({ error: 'Invalid email or password'});
+      }
+
+      req.session.email = foundUser.email;
+      res.status(200).json({ email: foundUser.email });
     })
   })
 

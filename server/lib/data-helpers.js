@@ -5,25 +5,30 @@ const simulateDelay = require("./util/simulate-delay");
 
 // Defines helper functions for saving and getting tweets, using the database `db`
 module.exports = function makeDataHelpers(db) {
+  const saveTweet = (newTweet, callback) => {
+    db
+      .collection('tweets')
+      .insertOne(newTweet, callback);
+  };
+
+  const getTweets = (callback) => {
+    db
+      .collection('tweets')
+      .find()
+      .toArray(callback);
+  };
+
   return {
-
     // Saves a tweet to `db`
-    saveTweet: function(newTweet, callback) {
-      simulateDelay(() => {
-        db.collection('tweets').insertOne(newTweet);
-        callback(null, true);
-      });
-    },
-
-    // Get all tweets in `db`, sorted by newest first
-    getTweets: function(callback) {
-      db.collection('tweets').find().toArray(callback)
-    },
+    saveTweet,
+    getTweets,
 
     // Finds email in `db`
     findUser: function(email, callback) {
-      let user = db.collection('users').find({"email": email}).toArray(callback)
-      return user
+      db
+        .collection('users')
+        .find({"email": email})
+        .toArray(callback);
     }
   }
 }
