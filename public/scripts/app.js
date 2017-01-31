@@ -36,6 +36,7 @@ function createTweetElement(tweet) {
    return html
  }
 
+// use function expressions over declarations
 function renderTweets(data) {
   $container = $('#tweets-container')
   data.forEach(function(tweet) {
@@ -44,7 +45,7 @@ function renderTweets(data) {
   })
 }
 
-function loadTweets() {
+const loadTweets = function() {
   $.ajax({
     url: '/tweets',
     method: 'GET'
@@ -54,6 +55,11 @@ function loadTweets() {
     renderTweets(tweets)
   })
 }
+
+const handleError = function(error) {
+  // use console.error on failure
+  console.error('Error: ', error)
+};
 
 $(function() {
   $('#tweet-form').on('submit', function(ev) {
@@ -67,14 +73,17 @@ $(function() {
         method: 'POST',
         data: $(this).serialize()   //returns "text=string"
       })
-      .done(function() {
-        $('#inputText').val("")
-        $('.counter').text(140)
-        loadTweets()      //reminder to loadTweets after submit
+      .done(function(response) {
+        debugger;
+        $('#inputText').val("");
+        $('.counter').text(140);
+        // instead of loading all tweets again
+        // loadTweets() //reminder to loadTweets after submit
+
+        // render only the newly created tweet
+        renderTweets([response]);
       })
-      .fail(function(error) {
-        console.log('Error: ', error)
-      })
+      .fail(handleError);
     }
   });
 
@@ -90,9 +99,7 @@ $(function() {
       $('#registration-button').hide()
       $('#welcome-user').text(data.email)
     })
-    .fail(function(error) {
-      console.log('Error: ', error)
-    })
+    .fail(handleError);
   })
 
   $('#logout-button').on('click', function(ev) {
@@ -104,14 +111,9 @@ $(function() {
       $('#welcome-user').hide()
       $('#logout-button').hide()
     })
-  })
+    .fail(handleError);
+  });
 
-    // $('#reg-form').on('submit', function(ev) {
-    //   ev.preventDefault();
-    //   $.ajax('/tweets', {
-    //     method: 'POST',
-    //     data: $(this).serialize()   //returns "text=string"
-    //   })
-
-  loadTweets()      //loadTweets on doc.ready to show before submitting new tweet
+  // load all tweets on page load
+  loadTweets();
 })

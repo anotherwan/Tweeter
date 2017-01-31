@@ -14,7 +14,7 @@ module.exports = function makeDataHelpers(db) {
   const getTweets = (callback) => {
     db
       .collection('tweets')
-      .find()
+      .find({})
       .toArray(callback);
   };
 

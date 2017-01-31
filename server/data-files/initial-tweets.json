@@ -57,7 +57,7 @@
   		"regular" : "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
   		"large" : "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
   	}
-  }
+  },
   {
   	"_id" : ObjectId("588cdef89c008d5bcd9445d1"),
   	"name" : "swish",
