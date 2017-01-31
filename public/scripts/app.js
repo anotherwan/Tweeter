@@ -49,7 +49,7 @@ function loadTweets() {
     url: '/tweets',
     method: 'GET'
   })
-  .then((tweets) => {
+  .then((tweets) => { //change according to what's passed/received in data
     $('#tweets-container').empty()  //empty container so that db doesn't duplicate when form is submitted
     renderTweets(tweets)
   })
@@ -76,22 +76,35 @@ $(function() {
         console.log('Error: ', error)
       })
     }
+  });
 
-  // $('#login-form').on('submit', function(ev) {
-  //   ev.preventDefault()
-  //   $.ajax('/login', {
-  //     method: 'POST',
-  //     data: $(this).serialize()
-  //   })
-  //   .done(function() {
-  //     $('#registration-btn').hide()
-  //     $('#login-btn').hide()
-  //     $('#login-form').val("")
-  //   })
-  //   .fail(function(error) {
-  //     console.log('Error: ', error)
-  //   })
-  // })
+  $('#login-form').on('submit', function(ev) {
+    ev.preventDefault()
+    $.ajax('/login', {
+      method: 'POST',
+      data: $(this).serialize()
+    })
+    .done(function(data) {
+      $('.login').slideToggle()
+      $('#login-button').hide()
+      $('#registration-button').hide()
+      $('#welcome-user').text(data.email)
+    })
+    .fail(function(error) {
+      console.log('Error: ', error)
+    })
+  })
+
+  $('#logout-button').on('click', function(ev) {
+    ev.preventDefault()
+    $.ajax('/logout', {
+      method: 'GET',
+    })
+    .done(function() {
+      $('#welcome-user').hide()
+      $('#logout-button').hide()
+    })
+  })
 
     // $('#reg-form').on('submit', function(ev) {
     //   ev.preventDefault();
@@ -100,6 +113,5 @@ $(function() {
     //     data: $(this).serialize()   //returns "text=string"
     //   })
 
-  })
   loadTweets()      //loadTweets on doc.ready to show before submitting new tweet
 })
