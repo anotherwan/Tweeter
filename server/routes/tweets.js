@@ -12,7 +12,7 @@ module.exports = function(DataHelpers) {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
-        res.json(tweets);
+        res.json({tweets: tweets, email: email}); //used to just say tweets. now pass in json depending on if the user is logged in
       }
     });
   });
